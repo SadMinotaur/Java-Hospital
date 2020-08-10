@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sadminotaur.hospital.mappers.HospitalMapper">
+
+    <insert id="insertSchedules" parameterType="List" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO schedule
+        (idDoctor, date, workingHoursStart, workingHoursEnd)
+        VALUES
+        <foreach collection="collection" item="schedule" separator=",">
+            (#{schedule.doctorId},#{schedule.date},#{schedule.workingHoursStart},#{schedule.workingHoursEnd})
+        </foreach>
+    </insert>
+
+    <insert id="insertTimeSlots" parameterType="List" useGeneratedKeys="false">
+        INSERT INTO timeSlot ( ticket, idSchedule, idPatient, timeStart, timeEnd, state ) VALUES
+        <foreach collection="collection" item="timeSlot" separator=",">
+            (#{timeSlot.ticket}, #{timeSlot.scheduleId}, #{timeSlot.patient.id}, #{timeSlot.timeStart},
+            #{timeSlot.timeEnd}, #{timeSlot.timeSlotState})
+        </foreach>
+    </insert>
+
+    <update id="setBusySlots" parameterType="List">
+        UPDATE timeSlot SET state = 'BUSY' WHERE ticket IN
+        <foreach open="(" close=")" collection="collection" item="timeSlot" separator=",">
+            #{timeSlot.ticket}
+        </foreach>
+    </update>
+
+    <update id="setEmptySlots" parameterType="List">
+        UPDATE timeSlot SET state = 'EMPTY' WHERE ticket IN
+        <foreach open="(" close=")" collection="collection" item="timeSlot" separator=",">
+            #{timeSlot.ticket}
+        </foreach>
+    </update>
+
+</mapper>

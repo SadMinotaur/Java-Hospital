@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <properties resource='mysql.jdbc.properties'/>
+
+    <settings>
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type='JDBC'/>
+            <dataSource type='POOLED'>
+                <property name='driver' value='${jdbc.driverClassName}'/>
+                <property name='url' value='${jdbc.url}'/>
+                <property name='username' value='${jdbc.username}'/>
+                <property name='password' value='${jdbc.password}'/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper class="sadminotaur.hospital.mappers.AdministratorMapper"/>
+        <mapper class="sadminotaur.hospital.mappers.UserMapper"/>
+        <mapper class="sadminotaur.hospital.mappers.DoctorMapper"/>
+        <mapper class="sadminotaur.hospital.mappers.PatientMapper"/>
+        <mapper class="sadminotaur.hospital.mappers.SessionMapper"/>
+        <mapper class="sadminotaur.hospital.mappers.RoomMapper"/>
+        <mapper class="sadminotaur.hospital.mappers.MedicalSpecialityMapper"/>
+        <mapper class="sadminotaur.hospital.mappers.ScheduleMapper"/>
+        <mapper class="sadminotaur.hospital.mappers.TimeSlotsMapper"/>
+        <mapper class="sadminotaur.hospital.mappers.CommissionMapper"/>
+        <mapper resource="sadminotaur/hospital/mappers/HospitalMapper.xml"/>
+    </mappers>
+
+</configuration>
