@@ -28,7 +28,7 @@ public interface ScheduleMapper {
             @Result(property = "workingHoursStart", column = "workingHoursStart"),
             @Result(property = "workingHoursEnd", column = "workingHoursEnd"),
             @Result(property = "timeSlots", column = "id", javaType = List.class,
-                    many = @Many(select = "net.thumbtack.school.hospital.mappers.TimeSlotsMapper.getByScheduleId", fetchType = FetchType.LAZY))
+                    many = @Many(select = "sadminotaur.hospital.mappers.TimeSlotsMapper.getByScheduleId", fetchType = FetchType.LAZY))
     })
     Schedule getById(int id);
 
@@ -39,7 +39,7 @@ public interface ScheduleMapper {
             @Result(property = "workingHoursStart", column = "workingHoursStart"),
             @Result(property = "workingHoursEnd", column = "workingHoursEnd"),
             @Result(property = "timeSlots", column = "id", javaType = List.class,
-                    many = @Many(select = "net.thumbtack.school.hospital.mappers.TimeSlotsMapper.getByScheduleId", fetchType = FetchType.LAZY))
+                    many = @Many(select = "sadminotaur.hospital.mappers.TimeSlotsMapper.getByScheduleId", fetchType = FetchType.LAZY))
     })
     List<Schedule> getByDoctorId(int idDoctor);
 

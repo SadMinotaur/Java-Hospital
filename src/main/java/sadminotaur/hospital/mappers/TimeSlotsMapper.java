@@ -41,7 +41,7 @@ public interface TimeSlotsMapper {
     @Results({
             @Result(property = "ticket", column = "ticket"),
             @Result(property = "patient", column = "idPatient", javaType = Patient.class,
-                    one = @One(select = "net.thumbtack.school.hospital.mappers.PatientMapper.getById", fetchType = FetchType.LAZY)),
+                    one = @One(select = "sadminotaur.hospital.mappers.PatientMapper.getById", fetchType = FetchType.LAZY)),
             @Result(property = "timeStart", column = "timeStart"),
             @Result(property = "timeEnd", column = "timeEnd"),
             @Result(property = "timeSlotState", column = "state"),
@@ -53,7 +53,7 @@ public interface TimeSlotsMapper {
             @Result(property = "ticket", column = "ticket"),
             @Result(property = "timeStart", column = "timeStart"),
             @Result(property = "patient", column = "idPatient", javaType = Patient.class,
-                    one = @One(select = "net.thumbtack.school.hospital.mappers.PatientMapper.getById", fetchType = FetchType.LAZY)),
+                    one = @One(select = "sadminotaur.hospital.mappers.PatientMapper.getById", fetchType = FetchType.LAZY)),
             @Result(property = "timeEnd", column = "timeEnd"),
             @Result(property = "timeSlotState", column = "state"),
     })
@@ -63,7 +63,7 @@ public interface TimeSlotsMapper {
     @Results({
             @Result(property = "ticket", column = "ticket"),
             @Result(property = "patient", column = "idPatient", javaType = Patient.class,
-                    one = @One(select = "net.thumbtack.school.hospital.mappers.PatientMapper.getById", fetchType = FetchType.LAZY)),
+                    one = @One(select = "sadminotaur.hospital.mappers.PatientMapper.getById", fetchType = FetchType.LAZY)),
             @Result(property = "timeStart", column = "timeStart"),
             @Result(property = "timeEnd", column = "timeEnd"),
             @Result(property = "timeSlotState", column = "state"),

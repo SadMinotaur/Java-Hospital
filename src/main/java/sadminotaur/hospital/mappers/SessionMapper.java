@@ -15,7 +15,7 @@ public interface SessionMapper {
     @Results({
             @Result(property = "cookie", column = "cookie"),
             @Result(property = "user", column = "idUser", javaType = User.class,
-                    one = @One(select = "net.thumbtack.school.hospital.mappers.UserMapper.getById", fetchType = FetchType.LAZY))
+                    one = @One(select = "sadminotaur.hospital.mappers.UserMapper.getById", fetchType = FetchType.LAZY))
     })
     Session getByCookie(String cookie);
 

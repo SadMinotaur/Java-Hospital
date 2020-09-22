@@ -129,7 +129,7 @@ public class ScheduleDaoImpl extends DaoImplBase implements ScheduleDao {
             try {
                 if (!schedules.isEmpty()) {
                     schedules.forEach(schedule -> schedule.setDoctorId(doctor.getId()));
-                    sqlSession.insert("net.thumbtack.school.hospital.mappers.HospitalMapper.insertSchedules", schedules);
+                    sqlSession.insert("sadminotaur.hospital.mappers.HospitalMapper.insertSchedules", schedules);
                     for (Schedule schedule : schedules) {
                         for (LocalTime tempTime = schedule.getWorkingHoursStart();
                              tempTime.compareTo(schedule.getWorkingHoursEnd()) <= 0;
@@ -144,7 +144,7 @@ public class ScheduleDaoImpl extends DaoImplBase implements ScheduleDao {
                         List<TimeSlot> timeSlots = schedule.getTimeSlots();
                         if (!timeSlots.isEmpty()) {
                             timeSlots.forEach(timeSlot -> timeSlot.setScheduleId(schedule.getId()));
-                            sqlSession.insert("net.thumbtack.school.hospital.mappers.HospitalMapper.insertTimeSlots", timeSlots);
+                            sqlSession.insert("sadminotaur.hospital.mappers.HospitalMapper.insertTimeSlots", timeSlots);
                         }
                     }
                 }

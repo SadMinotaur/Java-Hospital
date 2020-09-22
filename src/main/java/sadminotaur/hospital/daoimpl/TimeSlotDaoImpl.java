@@ -42,7 +42,7 @@ public class TimeSlotDaoImpl extends DaoImplBase implements TimeSlotDao {
         try (SqlSession sqlSession = getSessionBatch()) {
             try {
                 timeSlots.forEach(timeSlot -> timeSlot.setScheduleId(scheduleId));
-                sqlSession.insert("net.thumbtack.school.hospital.mappers.HospitalMapper.insertTimeSlots", timeSlots);
+                sqlSession.insert("sadminotaur.hospital.mappers.HospitalMapper.insertTimeSlots", timeSlots);
             } catch (RuntimeException ex) {
                 LOGGER.info("Can't insert timeSlots {} {}", timeSlots, ex);
                 sqlSession.rollback();
@@ -74,9 +74,9 @@ public class TimeSlotDaoImpl extends DaoImplBase implements TimeSlotDao {
             try {
                 int result;
                 if (timeSlotState == TimeSlotState.BUSY) {
-                    result = sqlSession.update("net.thumbtack.school.hospital.mappers.HospitalMapper.setBusySlots", timeSlots);
+                    result = sqlSession.update("sadminotaur.hospital.mappers.HospitalMapper.setBusySlots", timeSlots);
                 } else {
-                    result = sqlSession.update("net.thumbtack.school.hospital.mappers.HospitalMapper.setEmptySlots", timeSlots);
+                    result = sqlSession.update("sadminotaur.hospital.mappers.HospitalMapper.setEmptySlots", timeSlots);
                 }
                 if (timeSlots.size() != result) {
                     throw new ServiceException(ServiceErrorCode.DATABASE_UPDATE_ERROR);
