@@ -8,7 +8,6 @@ public class Schedule {
 
     private int id;
     private LocalDate date;
-    // REVU скорее всего оба не нужны - можно получить из timeSlotSet 
     private LocalTime workingHoursStart;
     private LocalTime workingHoursEnd;
     private List<TimeSlot> timeSlots;

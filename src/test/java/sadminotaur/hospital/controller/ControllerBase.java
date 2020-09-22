@@ -73,7 +73,8 @@ public class ControllerBase {
             room1.getName(),
             10,
             medicalSpeciality.getName(),
-            LocalDate.now().format(DateTimeFormatter.ofPattern(datePattern)),
+//            TODO: Something wrong with now()
+            LocalDate.now().minusDays(3).format(DateTimeFormatter.ofPattern(datePattern)),
             LocalDate.now().plusDays(8).format(DateTimeFormatter.ofPattern(datePattern)),
             new DaySchedule[]{
                     new DaySchedule(

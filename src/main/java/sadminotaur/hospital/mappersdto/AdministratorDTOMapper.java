@@ -1,4 +1,3 @@
-// REVU никаких заглавных букв в имени пакета
 package sadminotaur.hospital.mappersdto;
 
 import sadminotaur.hospital.model.Administrator;

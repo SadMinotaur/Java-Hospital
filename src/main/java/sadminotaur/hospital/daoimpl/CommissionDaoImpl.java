@@ -77,7 +77,7 @@ public class CommissionDaoImpl extends DaoImplBase implements CommissionDao {
         try (SqlSession sqlSession = getSession()) {
             try {
                 if(timeSlots.size() > 0) {
-                    if (timeSlots.size() != sqlSession.update("net.thumbtack.school.hospital.mappers.HospitalMapper.setEmptySlots", timeSlots)) {
+                    if (timeSlots.size() != sqlSession.update("sadminotaur.hospital.mappers.HospitalMapper.setEmptySlots", timeSlots)) {
                         throw new ServiceException(ServiceErrorCode.DATABASE_UPDATE_ERROR);
                     }
                 }
