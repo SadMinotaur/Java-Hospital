@@ -1,2 +1,2 @@
 # Java-Hospital
-Java server created using MyBatis,Spring.
+Java server created using MyBatis,Spring, MySQL.
